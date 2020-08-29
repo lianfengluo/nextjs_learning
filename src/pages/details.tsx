@@ -1,17 +1,20 @@
 import Link from 'next/link';
 import { NextPage } from 'next';
 
-interface prop {
+export interface VehiclePerson {
   ownerName: string;
   vehicle: string;
   details: string;
 }
-type props = { list: prop[] };
 
-const Details: NextPage<props> = ({ list }) => {
+interface PropsItf {
+  list?: VehiclePerson[];
+}
+
+const Details: NextPage<PropsItf> = ({ list }) => {
   return (
     <div>
-      {list.map(
+      {list?.map(
         (
           el: { ownerName: string; vehicle: string },
           index: number,
@@ -32,7 +35,7 @@ const Details: NextPage<props> = ({ list }) => {
 
 Details.getInitialProps = async () => {
   const resp = await fetch('http://localhost:4001/vehicles');
-  const list: prop[] = await resp.json();
+  const list: VehiclePerson[] | undefined = await resp.json();
   return { list };
 };
 
