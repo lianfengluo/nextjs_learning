@@ -5,6 +5,6 @@ import { NextPage } from 'next';
 // };
 // export default HomePage;
 
-export default function () {
+export default function ({}: NextPage<{}>) {
   return <h1>Home Page</h1>;
 }
