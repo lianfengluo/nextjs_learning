@@ -11,7 +11,6 @@ export default async function getPeople(req: NextApiRequest, res: NextApiRespons
     driver: sqlite3.Database,
   });
   const people = await db.all('SELECT * FROM person');
-  console.log(people);
   // console.log('ALL PEOPLE', JSON.stringify(people, null, 2));
   return res.json(people)
 }
