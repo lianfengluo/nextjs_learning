@@ -1,8 +1,8 @@
-import { open } from 'sqlite';
-import sqlite3 from 'sqlite3';
+const sqlite = require('sqlite');
+const sqlite3 = require('sqlite3');
 
 async function setUp() {
-  const db = await open({
+  const db = await sqlite.open({
     filename: './mydb.sqlite',
     driver: sqlite3.Database,
   });
