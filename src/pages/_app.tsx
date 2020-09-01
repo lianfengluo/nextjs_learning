@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from 'src/pages/theme';
+import theme from 'src/containers/theme';
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props;

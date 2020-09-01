@@ -1,8 +1,9 @@
+import authenicate from 'src/utils/authenicate';
 import {NextApiRequest, NextApiResponse} from "next";
 import sqlite3 from "sqlite3";
 import { open } from "sqlite"
 
-export default async function getPeopleById(req: NextApiRequest, res: NextApiResponse) {
+export default authenicate(async function getPeopleById(req: NextApiRequest, res: NextApiResponse) {
   // if (req.method !== "GET") {
   //   return res.status(500).json("Sorry we only allow GET method")
   // }
@@ -20,4 +21,4 @@ export default async function getPeopleById(req: NextApiRequest, res: NextApiRes
   }
   const person = await db.all('SELECT * FROM person where id = ?', [req.query.id]);
   return res.json(person)
-}
+})

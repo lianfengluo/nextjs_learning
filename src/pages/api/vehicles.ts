@@ -1,8 +1,9 @@
+import authenicate from 'src/utils/authenicate';
 import { NextApiRequest, NextApiResponse } from 'next';
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
-export default async function Vehicles(
+export default authenicate(async function Vehicles(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -15,4 +16,4 @@ export default async function Vehicles(
   });
   const vehicle = await db.all('SELECT * FROM vehicle');
   return res.json(vehicle);
-}
+})
